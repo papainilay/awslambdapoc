@@ -2,6 +2,8 @@ package com.poc.loan_management.controller;
 
 import com.poc.loan_management.entity.LoanApplication;
 import com.poc.loan_management.service.LoanService;
+import com.poc.loan_management.service.SnsService;
+import com.poc.loan_management.service.SqsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +20,7 @@ public class LoanController {
     }*/
 
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public LoanApplication saveLoan(@RequestBody LoanApplication loan)
-    {
+    public LoanApplication saveLoan(@RequestBody LoanApplication loan) {
         return loanService.saveLoan(loan);
     }
 
@@ -32,4 +33,6 @@ public class LoanController {
     public ResponseEntity<String> ping() {
         return ResponseEntity.ok("pong - Hello, World!");
     }
+
+
 }
